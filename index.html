@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TIU Virtual</title>
+    <style>
+      :root {
+        --bg: #f5f6fb;
+        --primary: #d9d4f3;
+        --danger: #e53935;
+      }
+
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: var(--bg);
+        overflow-x: hidden;
+      }
+
+      /* HEADER */
+      .header {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 15px;
+        font-weight: bold;
+      }
+
+      .back {
+        color: var(--danger);
+        font-size: 20px;
+        font-weight: bold;
+      }
+
+      .container {
+        text-align: center;
+        position: relative;
+        z-index: 2;
+      }
+
+      /* HORA MÁS ABAJO */
+      .time-box {
+        margin: 60px auto 10px;
+        padding: 10px 25px;
+        background: var(--primary);
+        border-radius: 10px;
+        font-size: 26px;
+        font-weight: bold;
+        width: fit-content;
+      }
+
+      .date {
+        color: #666;
+        margin-bottom: 60px;
+      }
+
+      /* AVATAR CENTRO DEL CELULAR */
+      .avatar {
+        display: flex;
+        justify-content: center;
+        margin-top: 60px;
+        position: relative;
+        z-index: 3;
+      }
+
+      .avatar img {
+        width: 130px;
+        height: 130px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 4px solid white;
+      }
+
+      /* CARD MUCHO MÁS ABAJO */
+      .card {
+        background: white;
+        width: 90%;
+        max-width: 360px;
+        margin: 80px auto 0;
+        padding: 25px 20px;
+        border-radius: 15px;
+        text-align: center;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .name {
+        color: var(--danger);
+        font-weight: bold;
+        font-size: 20px;
+        margin-bottom: 10px;
+      }
+
+      .label {
+        color: #777;
+        font-size: 14px;
+      }
+
+      .value {
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+
+      .career {
+        margin-top: 10px;
+        font-weight: bold;
+        color: #555;
+      }
+
+      .campus {
+        margin-top: 10px;
+        color: #777;
+      }
+
+      /* NUBES CON IMAGEN */
+      .cloud {
+        position: fixed;
+        background-image: url("nube.png");
+        background-size: contain;
+        background-repeat: no-repeat;
+        opacity: 0.8;
+        animation: moveClouds linear infinite;
+        z-index: 0;
+      }
+
+      .cloud1 {
+        width: 120px;
+        height: 60px;
+        top: 150px;
+        left: -150px;
+        animation-duration: 10s;
+      }
+      .cloud2 {
+        width: 180px;
+        height: 90px;
+        top: 250px;
+        left: -200px;
+        animation-duration: 12s;
+      }
+      .cloud3 {
+        width: 100px;
+        height: 50px;
+        top: 350px;
+        left: -120px;
+        animation-duration: 9s;
+      }
+      .cloud4 {
+        width: 150px;
+        height: 75px;
+        top: 450px;
+        left: -180px;
+        animation-duration: 11s;
+      }
+      .cloud5 {
+        width: 90px;
+        height: 45px;
+        top: 100px;
+        left: -100px;
+        animation-duration: 8s;
+      }
+
+      @keyframes moveClouds {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(120vw);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <div class="back"><</div>
+      <div>TIU VIRTUAL</div>
+    </div>
+
+    <div class="container">
+      <div class="time-box" id="clock">00:00:00</div>
+      <div class="date">Sabado, 16 May 2026</div>
+
+      <div class="avatar">
+        <img src="avatar.png" alt="avatar" />
+      </div>
+
+      <div class="card">
+        <div class="name">VICTOR JHOEL A*** C***</div>
+
+        <div class="label">Código de alumno:</div>
+        <div class="value">U202315685</div>
+
+        <div class="label">ID Banner:</div>
+        <div class="value">N01045756</div>
+
+        <div class="career">ING. SISTEMAS DE INFORMACION</div>
+        <div class="campus">📍 Campus San Miguel</div>
+      </div>
+    </div>
+
+    <!-- NUBES CON IMAGEN -->
+    <div class="cloud cloud1"></div>
+    <div class="cloud cloud2"></div>
+    <div class="cloud cloud3"></div>
+    <div class="cloud cloud4"></div>
+    <div class="cloud cloud5"></div>
+
+    <script>
+      function updateClock() {
+        const now = new Date();
+        const h = String(now.getHours()).padStart(2, "0");
+        const m = String(now.getMinutes()).padStart(2, "0");
+        const s = String(now.getSeconds()).padStart(2, "0");
+        document.getElementById("clock").textContent = `${h}:${m}:${s}`;
+      }
+
+      setInterval(updateClock, 1000);
+      updateClock();
+    </script>
+  </body>
+</html>
